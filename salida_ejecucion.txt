@@ -1,0 +1,112 @@
+=== GUARDIANES DEL PETÉN - ENTREGA 4 ===
+
+A. REGISTRAR ANIMALES (ENTREGAS 1 Y 2)
+Animal registrado: JAG-001, Balam
+Animal registrado: TAP-001, Tziquin
+Animal registrado: GUA-001, Ixchel
+Animal registrado: COC-001, Chak
+Animal registrado: MON-001, Kuk
+RECHAZADO: art. 1: código animal inválido
+RECHAZADO: art. 1: código animal repetido
+RECHAZADO: art. 2: estado de conservación incorrecto
+
+B. ASIGNAR COLLARES
+Collar GPS-01 asignado a JAG-001
+Collar GPS-02 asignado a TAP-001
+RECHAZADO: collar o animal inexistente
+RECHAZADO: art. 4: collar ocupado por JAG-001
+RECHAZADO: art. 4: animal ya lleva GPS-01
+Collar GPS-03 asignado a GUA-001
+
+C. REPORTAR POSICIÓN
+Posición: JAG-001, Laguna del Tigre, 2026-10-11 18:30
+Posición: JAG-001, Uaxactún, 2026-10-11 18:30
+Alerta AL-001: acercamiento a comunidad, prioridad alta, 2026-10-11 18:30
+SMS SIMULADO: AL-001 para GR-07
+Alerta AL-002: batería baja, prioridad media, 2026-10-11 18:30
+RECHAZADO: art. 3: batería menor que 10%; lectura no guardada
+RECHAZADO: art. 5: zona no registrada
+RECHAZADO: collar inexistente
+RECHAZADO: art. 10: fecha u hora inválida
+
+D. REGISTRAR AVISTAMIENTOS
+Avistamiento: COC-001 por GR-07
+Avistamiento: MON-001 por GR-08
+RECHAZADO: art. 7: código de guardarrecursos inválido
+RECHAZADO: animal o zona inexistente
+
+E. ATENDER ALERTAS
+Pendiente: AL-001, acercamiento a comunidad
+Pendiente: AL-002, batería baja
+Alerta AL-001 atendida por GR-07, 2026-10-11 19:00
+Pendiente: AL-002, batería baja
+RECHAZADO: art. 8: ya atendida por GR-07
+Pendiente: AL-002, batería baja
+RECHAZADO: alerta inexistente
+
+F. CAMBIAR BATERÍA Y CONSULTAR MOVIMIENTOS
+Batería GPS-02: 100% por GR-07, 2026-10-11 19:30
+RECHAZADO: arts. 3 y 9: nuevo nivel fuera de 0 a 100
+RECHAZADO: art. 7: código de guardarrecursos inválido
+Posición: TAP-001, El Remate, 2026-10-11 19:35
+Movimientos de JAG-001: 2
+    2026-10-11 18:30 | Laguna del Tigre | GPS
+    2026-10-11 18:30 | Uaxactún | GPS
+Movimientos de GUA-001: 0
+RECHAZADO: animal inexistente; sin resultados
+
+G. HERENCIA Y POLIMORFISMO DE ENTREGA 3
+Heredado: GPS-01
+Sobrescrito: JAG-001 | Balam | jaguar | En peligro: True | territorio_km2: 40
+Polimórfico: Balam (jaguar) es carnívoro, caza en la selva, camina y nada; territorio_km2: 40.
+Heredado: GPS-02
+Sobrescrito: TAP-001 | Tziquin | tapir | En peligro: True | peso_kg: 220
+Polimórfico: Tziquin (tapir) es herbívoro, come frutos, vive en bosques y camina y nada; peso_kg: 220.
+Heredado: GPS-03
+Sobrescrito: GUA-001 | Ixchel | guacamaya roja | En peligro: True | envergadura_cm: 100
+Polimórfico: Ixchel (guacamaya roja) come semillas, habita el dosel del bosque y vuela; envergadura_cm: 100.
+Heredado: Sin collar
+Sobrescrito: COC-001 | Chak | cocodrilo de pantano | En peligro: False | longitud_m: 3
+Polimórfico: Chak (cocodrilo de pantano) come peces, habita humedales y se mueve nadando y caminando; longitud_m: 3.
+Heredado: Sin collar
+Sobrescrito: MON-001 | Kuk | mono aullador | En peligro: False | altura_m: 1
+Polimórfico: Kuk (mono aullador) come hojas, vive en las copas de los árboles y trepa; altura_m: 1.
+TypeError controlado: Can't instantiate abstract class Animal without an implementation for abstract method 'describir'
+
+=== ENTREGA 4 / PRUEBA 1: ORDENAR ALERTAS ===
+Alerta AL-003: rastro en sendero, prioridad media, 2026-11-08 09:45
+Alerta AL-004: riesgo junto al poblado, prioridad alta, 2026-11-08 08:15
+Alerta AL-005: batería en observación, prioridad media, 2026-11-08 07:30
+Alerta AL-006: animal en zona crítica, prioridad alta, 2026-11-08 06:20
+
+ANTES DE ORDENAR:
+AL-001 | ALTA  | 2026-10-11 18:30 | acercamiento a comunidad
+AL-002 | MEDIA | 2026-10-11 18:30 | batería baja
+AL-003 | MEDIA | 2026-11-08 09:45 | rastro en sendero
+AL-004 | ALTA  | 2026-11-08 08:15 | riesgo junto al poblado
+AL-005 | MEDIA | 2026-11-08 07:30 | batería en observación
+AL-006 | ALTA  | 2026-11-08 06:20 | animal en zona crítica
+
+DESPUÉS DE ORDENAR (alta antes de media; luego hora ascendente):
+AL-001 | ALTA  | 2026-10-11 18:30 | acercamiento a comunidad
+AL-006 | ALTA  | 2026-11-08 06:20 | animal en zona crítica
+AL-004 | ALTA  | 2026-11-08 08:15 | riesgo junto al poblado
+AL-002 | MEDIA | 2026-10-11 18:30 | batería baja
+AL-005 | MEDIA | 2026-11-08 07:30 | batería en observación
+AL-003 | MEDIA | 2026-11-08 09:45 | rastro en sendero
+
+=== ENTREGA 4 / PRUEBA 2: BÚSQUEDA BINARIA ===
+Animales ordenados por código mediante selección:
+COC-001 - Chak
+GUA-001 - Ixchel
+JAG-001 - Balam
+MON-001 - Kuk
+TAP-001 - Tziquin
+Buscar COC-001: ENCONTRADO -> Chak, cocodrilo de pantano
+Buscar TAP-001: ENCONTRADO -> Tziquin, tapir
+Buscar XYZ-999: None (no existe)
+
+RESUMEN FINAL
+Zonas: 4 | Animales: 5 | Collares: 3
+Lecturas: 5 | Alertas: 6 | Cambios: 1
+SMS simulados: 1
